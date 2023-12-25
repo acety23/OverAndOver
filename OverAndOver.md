@@ -31,7 +31,7 @@
 
 线程存放自己独享变量的一个空间
 
-引用链ThreadLocal—>ThreadLocalMap—>Entry（若引用extends）
+引用链ThreadLocal—>ThreadLocalMap—>Entry（弱引用extends）
 
 Entry是key，value对，key是当前ThreadLocal的弱引用，value是强引用
 
@@ -89,7 +89,7 @@ AbstractQueuedSynchronizer
 
 工作流程分析
 
-- 线程池中线程数小于corePoolSize时，新任务将创建一个新线程执行任务，不论此时线程池中存在空闲线程；
+- 线程池中线程数小于corePoolSize时，新任务将创建一个新线程执行任务，不论此时线程池中是否存在空闲线程；
 - 线程池中线程数达到corePoolSize时，新任务将被放入workQueue中，等待线程池中任务调度执行；
 - 当workQueue已满，且maximumPoolSize>corePoolSize时，新任务会创建新线程执行任务；
 - 当workQueue已满，且提交任务数超过maximumPoolSize，任务由RejectedExecutionHandler处理；
@@ -723,7 +723,7 @@ Reddison + RedLock
 
 2. 单线程避免上下文切换
 
-3. 渐进式ReHash：两个全局哈希表多次拷贝，必满一次拷贝所有，造成IO阻塞；
+3. 渐进式ReHash：两个全局哈希表多次拷贝，避免一次拷贝所有，造成IO阻塞；
 
    缓存时间戳：需要获取时间的场景比如TTL（Time To Live）每次要获取时间戳都是一次系统调用，系统调用对于单线程的Redis来说太奢侈，所以有个定时任务，每秒更新一次时间，需要时间的时候都是去缓存中拿。
 
