@@ -5,7 +5,7 @@
 1. 单一职责原则（Single responsibility principle）一个类只负责一项职责；
 2. 里氏替换原则（Liskov Substituition Principle）：引用基类的地方必须能透明地使用其子类的对象，也就是说子类可以扩展父类的功能，但不能改变父类原有的功能；
 3. 依赖倒置原则（Dependence Inversion Principle）：设计要依赖于抽象而不是具体化（尽量面向接口编程）；
-4. 接口隔离原则（Interface Segregation Principle）：客户端不应该依赖它不需要的接口、一个类对另一个类的依赖应该建立在最小的接口上、接口最小化-过于臃肿的接口依据功能,可以将其拆分为多个接口；
+4. 接口隔离原则（Interface Segregation Principle）：客户端不应该依赖它不需要的接口、一个类对另一个类的依赖应该建立在最小的接口上、接口最小化-过于臃肿的接口依据功能，可以将其拆分为多个接口；
 5. 迪米特法则或最少知识原则（Law of Demeter or Least Knowlegde Principle）：一个对象应该对其他对象保持最少的了解,简单的理解就是高内聚,低耦合，一个类尽量减少对其他对象的依赖，并且这个类的方法和属性能用私有的就尽量私有化；
 6. 开闭原则（Open-Close Principle）：对扩展开放，对修改关闭。
 
